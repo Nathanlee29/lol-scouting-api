@@ -10,21 +10,9 @@ jobs:
     name: Run Tests
     runs-on: ubuntu-latest
     environment: test
-
     steps:
-    - name: NPM Install
-      shell: bash
-      run : |
-        cd api
-        npm install
-
-    # TODO
-      # - name: Lint
-      #   shell: bash
-      #   run: yarn run lint
-
-    - name: Unit Test
-      shell: bash
-      run: |
-        cd api
-        npm test
+      - uses: actions/checkout@v3
+      - name: Run Tests
+        uses: ./.github/actions/test
+        with:
+          workingDirectory: api
