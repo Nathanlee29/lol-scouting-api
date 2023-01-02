@@ -6,8 +6,9 @@ on:
 jobs:
   tests:
     name: Run Tests
-    # runs-on: ubuntu-latest
-    # environment: dev
+    runs-on: ubuntu-latest
+    environment: dev
+  steps:
     uses: ../actions/test.yml
 
     # - name: NPM Install
