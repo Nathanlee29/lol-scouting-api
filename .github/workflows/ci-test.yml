@@ -1,13 +1,15 @@
-name: DEV - CI
+name: TEST - CI
 
 on: 
-  workflow_dispatch:
+  push:
+    branches:
+      - main
 
 jobs:
   tests:
     name: Run Tests
     runs-on: ubuntu-latest
-    environment: dev
+    environment: prod
 
     steps:
     - uses: actions/checkout@v3
