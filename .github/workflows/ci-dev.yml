@@ -11,7 +11,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Run Tests
-        uses: ../actions/test.yml
+        uses: ./.github/actions/test.yml
 
     # - name: NPM Install
     #   shell: bash
