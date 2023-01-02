@@ -13,7 +13,7 @@ jobs:
       - name: Run Tests
         uses: ./.github/actions/test
         with:
-          workingDirectory: ./api
+          workingDirectory: api
 
     # - name: NPM Install
     #   shell: bash
