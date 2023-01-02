@@ -1,6 +1,6 @@
 name: PROD - CI
 
-on: 
+on:
   push:
     branches:
       - Prod

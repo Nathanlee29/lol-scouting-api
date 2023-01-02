@@ -1,6 +1,6 @@
 name: TEST - CI
 
-on: 
+on:
   push:
     branches:
       - main
