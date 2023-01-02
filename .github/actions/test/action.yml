@@ -9,20 +9,17 @@ inputs:
 runs:
   using: composite
   steps:
-  - name: NPM Install
+  - name: Install Packages
     shell: bash
-    run : |
-      npm install
+    run : npm install
     working-directory: ${{ inputs.workingDirectory }}
 
-# TODO
-  # - name: Lint
-  #   shell: bash
-  #   run: yarn run lint
-  #   working-directory: ${{ inputs.workingDirectory }}
+  - name: Lint
+    shell: bash
+    run: npm run lint
+    working-directory: ${{ inputs.workingDirectory }}
 
   - name: Unit Test
     shell: bash
-    run: |
-      npm test
+    run: npm test
     working-directory: ${{ inputs.workingDirectory }}
