@@ -10,23 +10,21 @@ jobs:
     environment: dev
 
     steps:
-    - uses: actions/checkout@v3
-
     - uses: ../actions/test.yml
 
-    - name: NPM Install
-      shell: bash
-      run : |
-        cd api
-        npm install
+    # - name: NPM Install
+    #   shell: bash
+    #   run : |
+    #     cd api
+    #     npm install
 
     # TODO
       # - name: Lint
       #   shell: bash
       #   run: yarn run lint
 
-    - name: Unit Test
-      shell: bash
-      run: |
-        cd api
-        npm test
+    # - name: Unit Test
+    #   shell: bash
+    #   run: |
+    #     cd api
+    #     npm test
