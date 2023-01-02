@@ -1,14 +1,19 @@
 name: Test
 description: Run Tests
 
-jobs:
-  steps:
+inputs:
+  workingDirectory:
+    required: true
+    description: Working directory where the tests will run.
 
+runs:
+  using: composite
+  steps:
   - name: NPM Install
     shell: bash
     run : |
       npm install
-    working-directory: ./api
+    working-directory: ${inputs.workingDirectory}
 
 # TODO
   # - name: Lint
@@ -20,4 +25,4 @@ jobs:
     shell: bash
     run: |
       npm test
-    working-directory: ./api
+    working-directory: ${inputs.workingDirectory}
