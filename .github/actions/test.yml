@@ -3,7 +3,6 @@ description: Run Tests
 
 jobs:
   steps:
-  - uses: actions/checkout@v3
 
   - name: NPM Install
     shell: bash

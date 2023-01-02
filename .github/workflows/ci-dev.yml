@@ -8,8 +8,10 @@ jobs:
     name: Run Tests
     runs-on: ubuntu-latest
     environment: dev
-  steps:
-    uses: ../actions/test.yml
+    steps:
+      - uses: actions/checkout@v3
+      - name: Run Tests
+        uses: ../actions/test.yml
 
     # - name: NPM Install
     #   shell: bash
