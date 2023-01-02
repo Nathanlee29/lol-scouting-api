@@ -6,7 +6,7 @@ inputs:
     required: true
     description: "The Directory of the application to test"
 
-runs:
+jobs:
   using: composite
   steps:
   - uses: actions/checkout@v3

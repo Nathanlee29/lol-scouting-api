@@ -12,8 +12,6 @@ jobs:
     environment: test
 
     steps:
-    - uses: actions/checkout@v3
-
     - name: NPM Install
       shell: bash
       run : |
