@@ -6,9 +6,9 @@ output "env" {
   value = data.external.env.result
 }
 
-output "env" {
-  value = data.external.env.result["ENVIRONMENT"]
-}
+# output "env" {
+#   value = data.external.env.result["ENVIRONMENT"]
+# }
 provider "azurerm" {
   features {}
 }
