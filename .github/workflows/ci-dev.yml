@@ -23,7 +23,6 @@ jobs:
       ARM_SUBSCRIPTION_ID: ${{secrets.AZUIRE_SUBSCRIPTION_ID}}
       ARM_TENANT_ID: ${{secrets.AZUIRE_TENANT_ID}}
       TF_LOG: "TRACE"
-      TF_VAR_ENVIRONMENT: "dev"
 
     steps:
       - uses: actions/checkout@v3
@@ -32,17 +31,29 @@ jobs:
         uses: hashicorp/setup-terraform@v1
 
       - name: Terraform init
-        run: terraform init
-        working-directory: ./infrastructure
+        uses: hashicorp/terraform-github-actions@master
+        with:
+          tf_actions_version: 0.12.13
+          tf_actions_subcommand: 'init'
+          tf_actions_working_dir: './infrastructure'
+          tf_actions_comment: false
+        env:
+          TF_VAR_environment: env
 
-      - name: Terraform Format
-        run: terraform fmt -check
-        working-directory: ./infrastructure
+      # - name: Terraform Format
+      #   run: terraform fmt -check
+      #   working-directory: ./infrastructure
 
       - name: Terraform Plan
-        run: terraform plan
-        working-directory: ./infrastructure
+        uses: hashicorp/terraform-github-actions@master
+        with:
+          tf_actions_version: 0.12.13
+          tf_actions_subcommand: 'plan'
+          tf_actions_working_dir: './infrastructure'
+          tf_actions_comment: false
+        env:
+          TF_VAR_environment: env
 
-      - name: Terraform Apply
-        run: terraform apply -auto-approve
-        working-directory: ./infrastructure
+      # - name: Terraform Apply
+      #   run: terraform apply -auto-approve
+      #   working-directory: ./infrastructure
