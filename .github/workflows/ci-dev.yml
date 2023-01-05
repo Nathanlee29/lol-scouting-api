@@ -62,7 +62,7 @@ jobs:
 
       - name: Call terraform output
         run: |
-          output=$(terraform output env)
+          output=$(terraform output riot_api_key)
           echo $output
 
       # - name: Terraform Apply
