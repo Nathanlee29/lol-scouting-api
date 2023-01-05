@@ -1,3 +1,3 @@
-output "env" {
-  value = data.external.env.result
+output "riot_api_key" {
+  value = var.riot_api_key
 }

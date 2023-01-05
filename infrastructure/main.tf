@@ -2,24 +2,15 @@ provider "azurerm" {
   features {}
 }
 
-data "terraform_remote_state" "state" {
-  backend = "azurerm"
-  config {
-    resource_group_name  = var.resource_group_name
-    storage_account_name = var.storage_account_name
-    container_name       = var.container_name
-    key                  = var.key
+
+terraform {
+  backend "azurerm" {
+    resource_group_name  = "dev-lol-scout-rg"
+    storage_account_name = "devlolscoutsa01"
+    container_name       = "terraform-state"
+    key                  = "terraform.tfstate"
   }
 }
-
-# terraform {
-#   backend "azurerm" {
-#     resource_group_name  = "dev-lol-scout-rg"
-#     storage_account_name = "devlolscoutsa01"
-#     container_name       = "terraform-state"
-#     key                  = "terraform.tfstate"
-#   }
-# }
 
 resource "azurerm_resource_group" "lol_scout_rg" {
   name     = "dev-lol-scout-rg"

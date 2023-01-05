@@ -1,3 +1,3 @@
-variable "environment" {
-  description = "The environment where resources will be built."
+variable "riot_api_key" {
+  description = "The RiotApi Key"
 }
