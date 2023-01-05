@@ -33,8 +33,8 @@ jobs:
 
       - name: Terraform init
         run: terraform init |
-          -backend-config="resource_group_name=$TF_VAR_${{TF_VAR_env}}-lol-scout-rg"
-          -backend-config="storage_account_name=$TF_VAR_${{TF_VAR_env}}lolscoutsa01"
+          -backend-config="resource_group_name=${{TF_VAR_env}}-lol-scout-rg"
+          -backend-config="storage_account_name=${{TF_VAR_env}}lolscoutsa01"
           -backend-config="container-name=terraform-state"
           -backend-config="key=terraform.tfstate"
         working-directory: ./infrastructure
