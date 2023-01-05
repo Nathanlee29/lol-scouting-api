@@ -49,7 +49,7 @@ jobs:
       #   working-directory: ./infrastructure
 
       - name: Terraform Plan
-        run: terraform fmt -check
+        run: terraform plan
         working-directory: ./infrastructure
         # uses: hashicorp/terraform-github-actions@master
         # with:
