@@ -1,3 +1,7 @@
+locals {
+  foo = var.riot_api_key
+}
+
 provider "azurerm" {
   features {}
 }
@@ -18,7 +22,7 @@ resource "azurerm_resource_group" "lol_scout_rg" {
 }
 
 resource "azurerm_app_service_plan" "app_sp" {
-  name                = "devlolscoutsp01"
+  name                = "devlolscoutsp01-${local.foo}"
   location            = azurerm_resource_group.lol_scout_rg.location
   resource_group_name = azurerm_resource_group.lol_scout_rg.name
 
