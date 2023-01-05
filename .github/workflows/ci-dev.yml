@@ -17,13 +17,15 @@ jobs:
 
   terraform:
     runs-on: ubuntu-latest
+    environment: dev
     env:
       ARM_CLIENT_ID: ${{secrets.AZURE_CLIENT_ID}}
       ARM_CLIENT_SECRET: ${{secrets.AZURE_CLIENT_SECRET}}
       ARM_SUBSCRIPTION_ID: ${{secrets.AZUIRE_SUBSCRIPTION_ID}}
       ARM_TENANT_ID: ${{secrets.AZUIRE_TENANT_ID}}
       # TF_LOG: "TRACE"
-      TF_VAR_env: 'dev'
+      TF_VAR_resource_group_name: ${jobs.terraform.environment.name}-lol-scout-rg
+      TF_VAR_storage_account_name: ${jobs.terraform.environment.name}lolscoutsa01
 
     steps:
       - uses: actions/checkout@v3
@@ -33,8 +35,8 @@ jobs:
 
       - name: Terraform init
         run: terraform init |
-          -backend-config="resource_group_name=${{TF_VAR_env}}-lol-scout-rg"
-          -backend-config="storage_account_name=${{TF_VAR_env}}lolscoutsa01"
+          -backend-config="resource_group_name=$TF_VAR_resource_group_name"
+          -backend-config="storage_account_name=$TF_VAR_storage_account_name"
           -backend-config="container-name=terraform-state"
           -backend-config="key=terraform.tfstate"
         working-directory: ./infrastructure
