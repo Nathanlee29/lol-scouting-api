@@ -24,8 +24,8 @@ jobs:
       ARM_SUBSCRIPTION_ID: ${{secrets.AZUIRE_SUBSCRIPTION_ID}}
       ARM_TENANT_ID: ${{secrets.AZUIRE_TENANT_ID}}
       TF_LOG: "TRACE"
-      TF_VAR_resource_group_name: ${{jobs.terraform.environment.name}}-lol-scout-rg
-      TF_VAR_storage_account_name: ${{jobs.terraform.environment.name}}lolscoutsa01
+      TF_VAR_resource_group_name: ${{terraform.environment.name}}-lol-scout-rg
+      TF_VAR_storage_account_name: ${{terraform.environment.name}}lolscoutsa01
       TF_VAR_container_name: terraform-state
       TF_VAR_key: terraform.tfstate
 
