@@ -60,10 +60,10 @@ jobs:
         # env:
         #   TF_VAR_environment: env
 
-      - name: Call terraform output
-        run: |
-          output=$(terraform output riot_api_key)
-          echo $output
+      # - name: Call terraform output
+      #   run: |
+      #     output=$(terraform output riot_api_key)
+      #     echo $output
 
       # - name: Terraform Apply
       #   run: terraform apply -auto-approve
