@@ -5,10 +5,10 @@ provider "azurerm" {
 data "terraform_remote_state" "state" {
   backend = "azurerm"
   config {
-    resource_group_name  = "${var.env}-lol-scout-rg"
-    storage_account_name = "${var.env}lolscoutsa01"
-    container_name       = "terraform-state"
-    key                  = "terraform.tfstate"
+    resource_group_name  = var.resource_group_name
+    storage_account_name = var.storage_account_name
+    container_name       = var.container_name
+    key                  = var.key
   }
 }
 
