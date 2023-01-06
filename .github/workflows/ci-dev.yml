@@ -35,12 +35,12 @@ jobs:
 
       - name: Terraform init
         run: terraform init
-        working-directory: ./infrastructure/dev
+        working-directory: ./infrastructure/environments/dev
 
       - name: Terraform Plan
         run: terraform plan
-        working-directory: ./infrastructure/dev
+        working-directory: ./infrastructure/environments/dev
 
       - name: Terraform Apply
         run: terraform apply -auto-approve
-        working-directory: ./infrastructure/dev
+        working-directory: ./infrastructure/environments/dev
