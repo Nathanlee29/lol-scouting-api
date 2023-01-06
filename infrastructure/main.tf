@@ -2,22 +2,12 @@ provider "azurerm" {
   features {}
 }
 
+module "resource_group" {
+  source = "./modules/resource_group"
 
-# terraform {
-#   backend "azurerm" {
-#     resource_group_name  = "dev-lol-scout-rg"
-#     storage_account_name = "devlolscoutsa01"
-#     container_name       = "terraform-state"
-#     key                  = "terraform.tfstate"
-#   }
-# }
-
-# module "resource_group" {
-#   source = "./modules/resource_group"
-
-#   resource_group_name = var.resource_group_name
-#   location = var.location
-# }
+  resource_group_name = var.resource_group_name
+  location = var.location
+}
 
 module "service_plan" {
   source = "./modules/service_plan"
