@@ -84,7 +84,7 @@ module "windows_web_app" {
   web_app_name = var.web_app_name
   location = var.location
   app_env_vars = var.app_env_vars
-  service_plan_id = module.service_plan.output.service_plan_id
+  service_plan_id = module.service_plan.service_plan_id
 }
 
 # resource "azurerm_windows_web_app" "app_wa" {
