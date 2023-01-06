@@ -1,8 +1,3 @@
-locals {
-  env = var.env
-  riot_api_key = var.riot_api_key
-}
-
 provider "azurerm" {
   features {}
 }
