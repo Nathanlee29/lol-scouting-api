@@ -3,6 +3,11 @@ variable "resource_group_name" {
     description= "The name of the resource group."
 }
 
+variable "storage_account_name" {
+    type = string
+    description= "The name of the storage account where terraform-state resides."
+}
+
 variable "location" {
     type = string
     description = "The location the resources are associated with."
@@ -13,7 +18,7 @@ variable "db_name" {
     description = "The name of the cosmosdb database"
 }
 
-variable "app_service_plan_name" {
+variable "service_plan_name" {
     type = string
     description = "The name of the app service plan"
 }

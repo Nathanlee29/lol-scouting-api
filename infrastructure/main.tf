@@ -33,7 +33,7 @@ module "service_plan" {
   source = "./modules/service_plan"
 
   resource_group_name = var.resource_group_name
-  app_service_plan_name = var.app_service_plan_name
+  service_plan_name = var.service_plan_name
   location = var.location
 }
 
